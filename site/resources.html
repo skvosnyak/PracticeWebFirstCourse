@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Полезные ссылки проекта СПП Московского Политеха — организация-партнёр, документация, инструменты и статьи."
+    />
+    <title>Ресурсы — СПП Московского Политеха</title>
+    <!-- favicon переключается по системной теме браузера, независимо от выбора пользователя -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-dark.ico" media="(prefers-color-scheme: dark)" />
+    <!-- script.js до CSS: IIFE синхронно ставит data-theme до рендера, исключает вспышку темы -->
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <a href="index.html" class="logo">
+        <span>СПП Московского Политеха</span>
+      </a>
+      <nav id="nav">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О проекте</a>
+        <a href="members.html">Участники</a>
+        <a href="journal.html">Журнал</a>
+        <a href="resources.html">Ресурсы</a>
+      </nav>
+      <div class="header-right">
+        <!-- icon-sun видна в тёмной теме, icon-moon — в светлой; CSS переключает по [data-theme] -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Сменить тему">
+          <svg
+            class="icon-sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg
+            class="icon-moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== RESOURCES ===== -->
+      <section id="resources">
+        <div class="section-header reveal">
+          <div class="section-badge">Ресурсы</div>
+          <h2>Полезные ссылки</h2>
+          <p>Организация-партнёр, документация, инструменты и материалы, использованные командой в ходе разработки.</p>
+        </div>
+
+        <div class="resources-grid reveal">
+          <div class="res-group">
+            <div class="res-group-title">Организация-партнёр</div>
+
+            <a href="https://psychohelp-mospoly.ru/" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon green">СПП</div>
+              <div class="res-link-text">
+                <span class="res-link-name">Сайт Службы Психологической Помощи</span>
+                <span class="res-link-desc"
+                  >Официальная платформа СПП Московского Политеха — то, что мы разрабатываем</span
+                >
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a href="https://vk.com/spp_polytech" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon blue">VK</div>
+              <div class="res-link-text">
+                <span class="res-link-name">СПП ВКонтакте</span>
+                <span class="res-link-desc">Официальная группа Службы Психологической Помощи Московского Политеха</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a href="https://mospolytech.ru" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon blue">МП</div>
+              <div class="res-link-text">
+                <span class="res-link-name">Московский Политех</span>
+                <span class="res-link-desc">Официальный сайт Московского Политехнического Университета</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a
+              href="https://github.com/Berlkot/psycho-help/tree/deploy"
+              target="_blank"
+              rel="noopener"
+              class="res-link"
+            >
+              <div class="res-link-icon purple">GH</div>
+              <div class="res-link-text">
+                <span class="res-link-name">GitHub — Frontend</span>
+                <span class="res-link-desc">Исходный код фронтенда платформы СПП, ветка deploy</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a
+              href="https://github.com/nikitabel0/mospoly-psychological-support"
+              target="_blank"
+              rel="noopener"
+              class="res-link"
+            >
+              <div class="res-link-icon purple">API</div>
+              <div class="res-link-text">
+                <span class="res-link-name">GitHub — Backend</span>
+                <span class="res-link-desc">FastAPI-бэкенд: маршруты, модели SQLAlchemy, схемы Pydantic, Docker</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+          </div>
+
+          <div class="res-group">
+            <div class="res-group-title">Документация</div>
+
+            <a href="https://react.dev/learn" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon blue">Re</div>
+              <div class="res-link-text">
+                <span class="res-link-name">React Documentation</span>
+                <span class="res-link-desc">Официальная документация React — основного UI-фреймворка проекта</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a href="https://www.typescriptlang.org/docs/" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon blue">TS</div>
+              <div class="res-link-text">
+                <span class="res-link-name">TypeScript Documentation</span>
+                <span class="res-link-desc">Официальная документация TypeScript — типизация всего фронтенда</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon green">FA</div>
+              <div class="res-link-text">
+                <span class="res-link-name">FastAPI Documentation</span>
+                <span class="res-link-desc">Официальная документация FastAPI — фреймворка бэкенда проекта</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a href="https://docs.sqlalchemy.org/" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon green">SA</div>
+              <div class="res-link-text">
+                <span class="res-link-name">SQLAlchemy Docs</span>
+                <span class="res-link-desc">Документация ORM SQLAlchemy для работы с PostgreSQL</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a href="https://www.postgresql.org/docs/" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon blue">PG</div>
+              <div class="res-link-text">
+                <span class="res-link-name">PostgreSQL Documentation</span>
+                <span class="res-link-desc">Официальная документация PostgreSQL — СУБД проекта</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+          </div>
+
+          <div class="res-group">
+            <div class="res-group-title">Инструменты разработки</div>
+
+            <a href="https://www.figma.com/" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon purple">Fi</div>
+              <div class="res-link-text">
+                <span class="res-link-name">Figma</span>
+                <span class="res-link-desc">Инструмент дизайна — прототипы всех страниц и дизайн-система проекта</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a href="https://docs.docker.com/" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon blue">Do</div>
+              <div class="res-link-text">
+                <span class="res-link-name">Docker Docs</span>
+                <span class="res-link-desc">Документация Docker и Docker Compose — контейнеризация бэкенда и БД</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a href="https://prettier.io/docs/en/" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon orange">Pr</div>
+              <div class="res-link-text">
+                <span class="res-link-name">Prettier</span>
+                <span class="res-link-desc">Форматировщик кода — единый стиль TypeScript, CSS и JSX в команде</span>
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a href="https://vitejs.dev/guide/" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon purple">Vi</div>
+              <div class="res-link-text">
+                <span class="res-link-name">Vite</span>
+                <span class="res-link-desc"
+                  >Сборщик фронтенда — мгновенный dev-сервер и оптимизированный продакшн-бандл</span
+                >
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+          </div>
+
+          <div class="res-group">
+            <div class="res-group-title">Статьи и руководства</div>
+
+            <a href="https://react.dev/learn/thinking-in-react" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon blue">Re</div>
+              <div class="res-link-text">
+                <span class="res-link-name">Thinking in React</span>
+                <span class="res-link-desc"
+                  >react.dev: базовая статья о компонентном мышлении, с которой команда начинала знакомство с
+                  React</span
+                >
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a
+              href="https://www.typescriptlang.org/docs/handbook/intro.html"
+              target="_blank"
+              rel="noopener"
+              class="res-link"
+            >
+              <div class="res-link-icon blue">TS</div>
+              <div class="res-link-text">
+                <span class="res-link-name">TypeScript Handbook</span>
+                <span class="res-link-desc"
+                  >Официальное руководство по TypeScript — использовалось при типизации API-ответов и пропсов</span
+                >
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a href="https://web.dev/patterns/theming/dark-mode" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon blue">WD</div>
+              <div class="res-link-text">
+                <span class="res-link-name">Dark Mode Best Practices</span>
+                <span class="res-link-desc"
+                  >web.dev: рекомендации по реализации тёмной темы через CSS-переменные и prefers-color-scheme</span
+                >
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+
+            <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener" class="res-link">
+              <div class="res-link-icon green">W3C</div>
+              <div class="res-link-text">
+                <span class="res-link-name">WCAG 2.1 Quick Reference</span>
+                <span class="res-link-desc"
+                  >Руководство W3C по доступности — ориентир при разработке модального окна и навигации</span
+                >
+              </div>
+              <span class="res-link-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-logo">СПП Московского Политеха</div>
+        <p>
+          Учебный проект в рамках дисциплины «Проектная деятельность»<br />
+          Группа <strong>251-321</strong> · Московский Политехнический Университет
+        </p>
+        <div class="footer-links">
+          <a href="index.html">Главная</a>
+          <a href="about.html">О проекте</a>
+          <a href="members.html">Участники</a>
+          <a href="journal.html">Журнал</a>
+          <a href="resources.html">Ресурсы</a>
+        </div>
+        <hr class="footer-divider" />
+        <p>
+          <a href="https://psychohelp-mospoly.ru/" target="_blank" rel="noopener">Сайт СПП</a>
+          ·
+          <a href="https://vk.com/spp_polytech" target="_blank" rel="noopener">ВКонтакте</a>
+          ·
+          <a href="https://github.com/Berlkot/psycho-help/tree/deploy" target="_blank" rel="noopener"
+            >Frontend GitHub</a
+          >
+          ·
+          <a href="https://github.com/nikitabel0/mospoly-psychological-support" target="_blank" rel="noopener"
+            >Backend GitHub</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <button id="back-top" aria-label="Наверх">↑</button>
+  </body>
+</html>

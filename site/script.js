@@ -1,8 +1,33 @@
-// Устанавливаем тему синхронно до загрузки CSS, чтобы исключить мигание при первом рендере.
-// document.documentElement доступен всегда, даже до парсинга <body>.
+// Двойное хранение темы: localStorage (постоянно) + window.name (в пределах вкладки).
+// window.name нужен для Firefox, где file:// изолирует localStorage на каждый файл.
+function writeThemePref(t) {
+  try {
+    localStorage.setItem('theme', t);
+  } catch (e) {}
+  try {
+    let d = {};
+    try {
+      d = JSON.parse(window.name || '{}');
+    } catch (e) {}
+    d.theme = t;
+    window.name = JSON.stringify(d);
+  } catch (e) {}
+}
+
+function readThemePref() {
+  try {
+    const ls = localStorage.getItem('theme');
+    if (ls) return ls;
+  } catch (e) {}
+  try {
+    const wn = JSON.parse(window.name || '{}').theme;
+    if (wn) return wn;
+  } catch (e) {}
+  return null;
+}
+
 (function () {
-  const t =
-    localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const t = readThemePref() || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', t);
 })();
 
@@ -12,11 +37,11 @@ document.addEventListener('DOMContentLoaded', function () {
   themeToggle.addEventListener('click', () => {
     const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
+    writeThemePref(next);
   });
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
+    if (!readThemePref()) {
       document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
     }
   });
@@ -38,24 +63,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  const sections = document.querySelectorAll('section[id]');
+  // Активная ссылка по имени текущего файла в URL
   const navLinks = document.querySelectorAll('nav a');
-
-  function setActiveLink() {
-    const scrollY = window.scrollY;
-    sections.forEach((sec) => {
-      const top = sec.offsetTop - 80; // 80 = высота хедера (64px) + комфортный отступ
-      const bottom = top + sec.offsetHeight;
-      if (scrollY >= top && scrollY < bottom) {
-        navLinks.forEach((a) => a.classList.remove('active'));
-        const active = document.querySelector('nav a[href="#' + sec.id + '"]');
-        if (active) active.classList.add('active');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', setActiveLink, { passive: true });
-  setActiveLink();
+  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+  navLinks.forEach((a) => {
+    if (a.getAttribute('href') === currentFile) {
+      a.classList.add('active');
+    }
+  });
 
   const reveals = document.querySelectorAll('.reveal');
   const revealObs = new IntersectionObserver(

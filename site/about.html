@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="О проекте «Сайт службы психологической помощи Московского Политеха» — цели, задачи, актуальность и техническая архитектура платформы."
+    />
+    <title>О проекте — СПП Московского Политеха</title>
+    <!-- favicon переключается по системной теме браузера, независимо от выбора пользователя -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-dark.ico" media="(prefers-color-scheme: dark)" />
+    <!-- script.js до CSS: IIFE синхронно ставит data-theme до рендера, исключает вспышку темы -->
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <a href="index.html" class="logo">
+        <span>СПП Московского Политеха</span>
+      </a>
+      <nav id="nav">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О проекте</a>
+        <a href="members.html">Участники</a>
+        <a href="journal.html">Журнал</a>
+        <a href="resources.html">Ресурсы</a>
+      </nav>
+      <div class="header-right">
+        <!-- icon-sun видна в тёмной теме, icon-moon — в светлой; CSS переключает по [data-theme] -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Сменить тему">
+          <svg
+            class="icon-sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg
+            class="icon-moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== ABOUT ===== -->
+      <section id="about">
+        <div class="section-header reveal">
+          <div class="section-badge">О проекте</div>
+          <h2>Цели, задачи и актуальность</h2>
+          <p>Платформа, которая делает психологическую помощь доступной для каждого студента Московского Политеха.</p>
+        </div>
+
+        <div class="about-intro reveal">
+          <p>
+            <strong>Важно:</strong> вы читаете учебный отчёт в формате сайта, подготовленный тремя студентами группы
+            251-321 в рамках дисциплины «Проектная деятельность». Здесь описан проект, в котором мы участвуем, и наш
+            конкретный вклад. Это не сам сайт Службы Психологической Помощи — он доступен по адресу
+            <a href="https://psychohelp-mospoly.ru/" target="_blank" rel="noopener">psychohelp-mospoly.ru</a>.
+          </p>
+          <p>
+            Проект «СПП Московского Политеха» существует уже более двух лет и ведётся большой межфункциональной
+            командой. По данным Всемирной организации здравоохранения, депрессия и тревожные расстройства входят в топ-3
+            причин академических неудач среди молодёжи. Именно поэтому в Московском Политехе решили создать цифровую
+            платформу — чтобы студентам было проще записаться к психологу, минуя звонок или личный визит.
+          </p>
+        </div>
+
+        <div class="about-grid reveal">
+          <div class="card">
+            <h3>Цель проекта</h3>
+            <p>
+              Создать удобный и безопасный онлайн-ресурс для записи студентов на психологические консультации и
+              взаимодействия с психологами Московского Политеха без психологических и технических барьеров.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Актуальность</h3>
+            <p>
+              Данные ВОЗ и внутреннее исследование университета указывают на острую потребность в доступной
+              психологической поддержке. Телефонная запись отпугивает студентов — им нужен анонимный цифровой канал
+              связи с психологом.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Задачи разработки</h3>
+            <p>
+              Реализовать систему ролей и аутентификации, личные кабинеты студента и психолога, механизм подачи и
+              обработки заявок, уведомления по email, адаптивный дизайн и тёмную тему.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Конфиденциальность</h3>
+            <p>
+              Данные консультаций хранятся в зашифрованном виде. Доступ к информации о клиентах имеет только назначенный
+              психолог. Платформа соответствует требованиям ФЗ-152 о персональных данных.
+            </p>
+          </div>
+        </div>
+
+        <div class="objectives-block reveal">
+          <h3>Конкретные задачи проекта</h3>
+          <ul class="objectives-list">
+            <li>
+              Разработать систему регистрации и аутентификации с JWT-токенами и разделением ролей (студент, психолог,
+              администратор)
+            </li>
+            <li>
+              Реализовать механизм подачи заявок на консультацию с выбором формата (очно / онлайн) и удобного времени
+            </li>
+            <li>
+              Создать личный кабинет студента с историей обращений, текущими статусами заявок и возможностью отмены
+            </li>
+            <li>
+              Создать личный кабинет психолога с расписанием, очередью заявок и инструментами обратной связи со
+              студентом
+            </li>
+            <li>
+              Разработать административный интерфейс для управления расписанием, назначения психологов и просмотра
+              статистики
+            </li>
+            <li>Реализовать систему email-уведомлений о каждой смене статуса заявки</li>
+            <li>Обеспечить полную адаптивность интерфейса для экранов от 320 до 2560 пикселей на всех устройствах</li>
+            <li>
+              Внедрить тёмную тему с сохранением предпочтений пользователя в localStorage и поддержкой системного
+              prefers-color-scheme
+            </li>
+            <li>
+              Обеспечить доступность интерфейса по стандарту WCAG 2.1 AA: навигация с клавиатуры, достаточный контраст,
+              aria-атрибуты
+            </li>
+          </ul>
+        </div>
+
+        <div class="arch-section reveal">
+          <h3>Техническая архитектура</h3>
+          <div class="arch-grid">
+            <div class="arch-item">
+              <div class="arch-layer">Frontend</div>
+              <p>
+                React 18 + TypeScript, сборка через Vite. Компонентная архитектура: React Router DOM для навигации,
+                TanStack Query для серверного состояния и кэширования, Zustand для глобального клиентского состояния.
+                Формы — React Hook Form + Zod. HTTP-запросы — Axios.
+              </p>
+            </div>
+            <div class="arch-item">
+              <div class="arch-layer">Backend</div>
+              <p>
+                Python + FastAPI + Uvicorn (ASGI-сервер). AsyncPG — асинхронный драйвер PostgreSQL. Pydantic — валидация
+                данных, Passlib — хэширование паролей, JWT — аутентификация. Пакеты управляются через UV.
+              </p>
+            </div>
+            <div class="arch-item">
+              <div class="arch-layer">База данных</div>
+              <p>
+                PostgreSQL с ORM SQLAlchemy. Управление миграциями через Alembic. Индексы на часто запрашиваемых полях:
+                student_id, status, created_at.
+              </p>
+            </div>
+            <div class="arch-item">
+              <div class="arch-layer">Инфраструктура</div>
+              <p>
+                Docker + Docker Compose для контейнеризации и воспроизводимого окружения. Nginx в роли reverse proxy и
+                раздачи статики. CI/CD через GitHub Actions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-video-block reveal">
+          <video controls>
+            <source src="images/about.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+          <div class="video-caption">Видеопрезентация Службы Психологической Помощи Московского Политеха</div>
+        </div>
+
+        <div class="reveal">
+          <p class="about-subsection-title">Стек технологий</p>
+          <div class="tech-list">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Vite</span>
+            <span class="tag">React Router</span>
+            <span class="tag">TanStack Query</span>
+            <span class="tag">Zustand</span>
+            <span class="tag">React Hook Form</span>
+            <span class="tag">Zod</span>
+            <span class="tag">Axios</span>
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Uvicorn</span>
+            <span class="tag">AsyncPG</span>
+            <span class="tag">Pydantic</span>
+            <span class="tag">SQLAlchemy</span>
+            <span class="tag">Alembic</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">JWT</span>
+            <span class="tag">Passlib</span>
+            <span class="tag">UV</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Nginx</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">ESLint</span>
+            <span class="tag">Prettier</span>
+            <span class="tag">Pytest</span>
+            <span class="tag">Figma</span>
+          </div>
+        </div>
+
+        <div class="lifecycle-block reveal">
+          <h3>Жизненный цикл заявки на бэкенде</h3>
+          <img src="images/application-life-cycle.png" alt="Схема жизненного цикла заявки на консультацию" />
+          <p class="lifecycle-caption">
+            Каждая заявка проходит цепочку статусов: «Новая» → «Рассматривается» → «Подтверждена» → «Завершена» либо
+            «Отменена». На каждом переходе студенту автоматически отправляется email-уведомление, а в личном кабинете
+            обновляется статус в режиме реального времени.
+          </p>
+        </div>
+
+        <div class="screenshots reveal">
+          <div class="screenshot-item">
+            <img
+              src="images/modal-window-on-home-page-dark-theme.png"
+              alt="Модальное окно на главной странице — тёмная тема"
+            />
+            <div class="screenshot-caption">Модальное окно записи на приём (тёмная тема)</div>
+          </div>
+          <div class="screenshot-item">
+            <img src="images/psychologist-personal-account.png" alt="Личный кабинет психолога — тёмная тема" />
+            <div class="screenshot-caption">Личный кабинет психолога (тёмная тема)</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-logo">СПП Московского Политеха</div>
+        <p>
+          Учебный проект в рамках дисциплины «Проектная деятельность»<br />
+          Группа <strong>251-321</strong> · Московский Политехнический Университет
+        </p>
+        <div class="footer-links">
+          <a href="index.html">Главная</a>
+          <a href="about.html">О проекте</a>
+          <a href="members.html">Участники</a>
+          <a href="journal.html">Журнал</a>
+          <a href="resources.html">Ресурсы</a>
+        </div>
+        <hr class="footer-divider" />
+        <p>
+          <a href="https://psychohelp-mospoly.ru/" target="_blank" rel="noopener">Сайт СПП</a>
+          ·
+          <a href="https://vk.com/spp_polytech" target="_blank" rel="noopener">ВКонтакте</a>
+          ·
+          <a href="https://github.com/Berlkot/psycho-help/tree/deploy" target="_blank" rel="noopener"
+            >Frontend GitHub</a
+          >
+          ·
+          <a href="https://github.com/nikitabel0/mospoly-psychological-support" target="_blank" rel="noopener"
+            >Backend GitHub</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <button id="back-top" aria-label="Наверх">↑</button>
+  </body>
+</html>

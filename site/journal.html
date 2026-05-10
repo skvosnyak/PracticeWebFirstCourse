@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Дневник разработки — записи группы 251-321 с 2026 года и ключевые вехи проекта СПП Московского Политеха."
+    />
+    <title>Журнал — СПП Московского Политеха</title>
+    <!-- favicon переключается по системной теме браузера, независимо от выбора пользователя -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-dark.ico" media="(prefers-color-scheme: dark)" />
+    <!-- script.js до CSS: IIFE синхронно ставит data-theme до рендера, исключает вспышку темы -->
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <a href="index.html" class="logo">
+        <span>СПП Московского Политеха</span>
+      </a>
+      <nav id="nav">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О проекте</a>
+        <a href="members.html">Участники</a>
+        <a href="journal.html">Журнал</a>
+        <a href="resources.html">Ресурсы</a>
+      </nav>
+      <div class="header-right">
+        <!-- icon-sun видна в тёмной теме, icon-moon — в светлой; CSS переключает по [data-theme] -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Сменить тему">
+          <svg
+            class="icon-sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg
+            class="icon-moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== JOURNAL ===== -->
+      <section id="journal">
+        <div class="section-header reveal">
+          <div class="section-badge">Журнал</div>
+          <h2>Дневник разработки</h2>
+          <p>
+            Наши записи с 2026 года и ключевые вехи проекта, которые случились до того, как мы к нему присоединились.
+          </p>
+        </div>
+
+        <div class="posts-grid">
+          <!-- Пост 1 -->
+          <div class="post-card reveal">
+            <div class="post-date-col">
+              <span class="post-date-day">05</span>
+              <span class="post-date-mon">май</span>
+              <span class="post-date-year">2026</span>
+              <div class="post-date-divider"></div>
+            </div>
+            <div>
+              <span class="post-type report">Наш отчёт</span>
+              <div class="post-title">Итоги нашей работы в проекте — финальный спринт</div>
+              <div class="post-body">
+                <p>
+                  Завершили все задачи, поставленные нашей тройке в рамках дисциплины «Проектная деятельность». Жемчугов
+                  Алексей сдал header и страницу новостей; Зарубин Дмитрий — адаптив и модальное окно; Якунин Егор —
+                  тёмную тему. Совместно доработали личный кабинет психолога.
+                </p>
+                <p>
+                  Все изменения прошли ревью в основной команде проекта и влиты в рабочую ветку. Ни один из компонентов
+                  не сломал существующую кодовую базу — это был главный критерий приёмки.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Пост 2 -->
+          <div class="post-card reveal">
+            <div class="post-date-col">
+              <span class="post-date-day">18</span>
+              <span class="post-date-mon">апр</span>
+              <span class="post-date-year">2026</span>
+              <div class="post-date-divider"></div>
+            </div>
+            <div>
+              <span class="post-type report">Наш отчёт</span>
+              <div class="post-title">День открытых дверей: публичная презентация платформы</div>
+              <div class="post-body">
+                <p>
+                  Команда проекта представила платформу на Дне открытых дверей Московского Политеха. Стенд посетили
+                  абитуриенты, их родители и преподаватели. Живая демонстрация включала полный сценарий: регистрацию
+                  студента, подачу заявки на консультацию и просмотр статуса в личном кабинете.
+                </p>
+                <p>
+                  Особый интерес вызвали тёмная тема и модальное окно записи — компоненты, которые разработала наша
+                  тройка. По итогам дня собрано более 30 положительных отзывов.
+                </p>
+              </div>
+              <div class="post-video vertical">
+                <video controls>
+                  <source src="images/open-day.mp4" type="video/mp4" />
+                  Ваш браузер не поддерживает видео.
+                </video>
+                <div class="post-video-caption">
+                  Видеозапись презентации проекта на Дне открытых дверей Московского Политеха
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Пост 3 -->
+          <div class="post-card reveal">
+            <div class="post-date-col">
+              <span class="post-date-day">10</span>
+              <span class="post-date-mon">мар</span>
+              <span class="post-date-year">2026</span>
+              <div class="post-date-divider"></div>
+            </div>
+            <div>
+              <span class="post-type report">Наш отчёт</span>
+              <div class="post-title">Погружение в проект: изучаем кодовую базу, берём задачи</div>
+              <div class="post-body">
+                <p>
+                  Влились в рабочий процесс фронтенд-команды. Изучили существующую структуру файлов, стиль кода и
+                  принятые соглашения. Прочитали документацию бэкенда, разобрались с тем, как фронтенд взаимодействует с
+                  REST API.
+                </p>
+                <p>
+                  Распределили задачи между собой, завели ветки в GitHub и приступили к первым правкам. Проект оказался
+                  гораздо крупнее, чем казалось снаружи: сотни файлов, несколько десятков компонентов и уже работающий
+                  деплой на реальном сервере.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Пост 4 -->
+          <div class="post-card reveal">
+            <div class="post-date-col">
+              <span class="post-date-day">05</span>
+              <span class="post-date-mon">мар</span>
+              <span class="post-date-year">2025</span>
+              <div class="post-date-divider"></div>
+            </div>
+            <div>
+              <span class="post-type history">История проекта</span>
+              <div class="post-title">Бэкенд: первый стабильный деплой платформы на тестовый сервер</div>
+              <div class="post-body">
+                <p>
+                  Бэкенд-команда успешно задеплоила рабочую версию API на тестовый сервер. Docker Compose объединяет три
+                  контейнера: FastAPI-приложение, PostgreSQL и Nginx в роли reverse proxy. Все endpoint'ы аутентификации
+                  и заявок доступны по HTTPS.
+                </p>
+                <p>
+                  Фронтенд получил стабильный адрес тестового сервера и начал полноценную интеграцию — отправку реальных
+                  запросов вместо заглушек. Бэкенд-команда подготовила документацию по API в Swagger UI (встроен в
+                  FastAPI).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Пост 5 -->
+          <div class="post-card reveal">
+            <div class="post-date-col">
+              <span class="post-date-day">28</span>
+              <span class="post-date-mon">фев</span>
+              <span class="post-date-year">2025</span>
+              <div class="post-date-divider"></div>
+            </div>
+            <div>
+              <span class="post-type history">История проекта</span>
+              <div class="post-title">QA-отдел: настроено автоматизированное тестирование бэкенда через Pytest</div>
+              <div class="post-body">
+                <p>
+                  Команда тестирования настроила инфраструктуру для автоматизированных тестов на Pytest. Покрыты
+                  ключевые маршруты: регистрация, вход, создание заявки, смена статуса, получение списка заявок. Тесты
+                  запускаются на изолированной тестовой базе данных.
+                </p>
+                <p>
+                  В GitHub Actions добавлен шаг автозапуска тестов при каждом pull request. Это позволило команде
+                  уверенно принимать изменения без риска регрессий — особенно важно при активной разработке как на
+                  фронтенде, так и на бэкенде.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Пост 6 -->
+          <div class="post-card reveal">
+            <div class="post-date-col">
+              <span class="post-date-day">10</span>
+              <span class="post-date-mon">фев</span>
+              <span class="post-date-year">2025</span>
+              <div class="post-date-divider"></div>
+            </div>
+            <div>
+              <span class="post-type history">История проекта</span>
+              <div class="post-title">Спроектирована архитектура бэкенда и схема жизненного цикла заявок</div>
+              <div class="post-body">
+                <p>
+                  Бэкенд-отдел утвердил схему жизненного цикла заявки: «Новая» → «Рассматривается» → «Подтверждена» →
+                  «Завершена» / «Отменена». На каждом переходе генерируется email-уведомление студенту. Описаны все
+                  эндпоинты REST API: создание, получение, обновление статуса заявки.
+                </p>
+                <p>
+                  Фронтенд-отдел получил техническое задание на реализацию соответствующих UI-компонентов: статусных
+                  бейджей, кнопок действий и стейт-машины на клиенте. Согласован формат JWT-токенов и схемы
+                  запросов/ответов.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Пост 7 -->
+          <div class="post-card reveal">
+            <div class="post-date-col">
+              <span class="post-date-day">14</span>
+              <span class="post-date-mon">янв</span>
+              <span class="post-date-year">2025</span>
+              <div class="post-date-divider"></div>
+            </div>
+            <div>
+              <span class="post-type history">История проекта</span>
+              <div class="post-title">
+                Бэкенд: завершена разработка ядра REST API — аутентификация, заявки, уведомления
+              </div>
+              <div class="post-body">
+                <p>
+                  Бэкенд-команда завершила реализацию основных endpoint'ов API: регистрация и вход (JWT), создание,
+                  получение и обновление статуса заявки, получение расписания психолога. Все схемы запросов и ответов
+                  описаны через Pydantic-модели и задокументированы в Swagger.
+                </p>
+                <p>
+                  Настроена система email-уведомлений: при каждой смене статуса заявки студент получает письмо с
+                  подробностями. Подключён Alembic для управления миграциями базы данных. API готово к интеграции с
+                  фронтендом.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Пост 8 -->
+          <div class="post-card reveal">
+            <div class="post-date-col">
+              <span class="post-date-day">08</span>
+              <span class="post-date-mon">дек</span>
+              <span class="post-date-year">2024</span>
+              <div class="post-date-divider"></div>
+            </div>
+            <div>
+              <span class="post-type history">История проекта</span>
+              <div class="post-title">Утверждён дизайн в Figma — передача макетов фронтенду</div>
+              <div class="post-body">
+                <p>
+                  Дизайн-отдел завершил разработку полного комплекта макетов в Figma: главная страница, страница
+                  новостей, форма регистрации и входа, личный кабинет студента, личный кабинет психолога. Каждый макет
+                  представлен в двух вариантах — светлая и тёмная тема — и в трёх брейкпоинтах (мобильный, планшет,
+                  десктоп).
+                </p>
+                <p>
+                  Фронтенд-отдел провёл разбор макетов совместно с дизайнерами, уточнил поведение интерактивных
+                  состояний (hover, focus, active, disabled) и согласовал финальные токены дизайн-системы. Работы
+                  переходят в фазу активной разработки.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Пост 9 -->
+          <div class="post-card reveal">
+            <div class="post-date-col">
+              <span class="post-date-day">20</span>
+              <span class="post-date-mon">ноя</span>
+              <span class="post-date-year">2024</span>
+              <div class="post-date-divider"></div>
+            </div>
+            <div>
+              <span class="post-type history">История проекта</span>
+              <div class="post-title">Анализ аналогов и выбор технологического стека</div>
+              <div class="post-body">
+                <p>
+                  Команда провела анализ существующих решений в области психологической поддержки студентов в российских
+                  университетах. Изучены платформы МГУ, СПбГУ и ряда зарубежных вузов. Выявленные сильные стороны
+                  аналогов легли в основу требований к платформе, слабые места — стали точками дифференциации.
+                </p>
+                <p>
+                  По итогам технического совещания утверждён стек: Python + FastAPI на бэкенде, чистый HTML/CSS/JS на
+                  фронтенде, PostgreSQL в качестве СУБД, Docker для контейнеризации. Решение обусловлено опытом команды,
+                  требованиями к производительности и отсутствием лицензионных ограничений.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-logo">СПП Московского Политеха</div>
+        <p>
+          Учебный проект в рамках дисциплины «Проектная деятельность»<br />
+          Группа <strong>251-321</strong> · Московский Политехнический Университет
+        </p>
+        <div class="footer-links">
+          <a href="index.html">Главная</a>
+          <a href="about.html">О проекте</a>
+          <a href="members.html">Участники</a>
+          <a href="journal.html">Журнал</a>
+          <a href="resources.html">Ресурсы</a>
+        </div>
+        <hr class="footer-divider" />
+        <p>
+          <a href="https://psychohelp-mospoly.ru/" target="_blank" rel="noopener">Сайт СПП</a>
+          ·
+          <a href="https://vk.com/spp_polytech" target="_blank" rel="noopener">ВКонтакте</a>
+          ·
+          <a href="https://github.com/Berlkot/psycho-help/tree/deploy" target="_blank" rel="noopener"
+            >Frontend GitHub</a
+          >
+          ·
+          <a href="https://github.com/nikitabel0/mospoly-psychological-support" target="_blank" rel="noopener"
+            >Backend GitHub</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <button id="back-top" aria-label="Наверх">↑</button>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "name": "about-spp-mospoly",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Учебный отчёт группы 251-321 о вкладе в разработку сайта Службы Психологической Помощи Московского Политеха — дисциплина «Проектная деятельность».",
+  "keywords": [
+    "психологическая помощь",
+    "московский политех",
+    "проектная деятельность",
+    "веб-разработка",
+    "студенческий проект"
+  ],
+  "homepage": "https://psychohelp-mospoly.ru/",
+  "bugs": {
+    "url": "https://github.com/skvosnyak/PracticeWebFirstCourse/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skvosnyak/PracticeWebFirstCourse.git"
+  },
+  "license": "ISC",
+  "author": "Группа 251-321: Жемчугов Алексей, Зарубин Дмитрий, Якунин Егор",
+  "contributors": [
+    {
+      "name": "Жемчугов Алексей",
+      "email": "zhemchugov.alex@gmail.com"
+    },
+    {
+      "name": "Зарубин Дмитрий",
+      "email": "zardim2004@gmail.com"
+    },
+    {
+      "name": "Якунин Егор",
+      "email": "egorakunin42@gmail.com"
+    }
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.8.3"
+  }
+}
